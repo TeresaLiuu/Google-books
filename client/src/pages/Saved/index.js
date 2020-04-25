@@ -44,7 +44,7 @@ class Saved extends React.Component {
                                     synopsis={book.synopsis}
                                     id={book._id}
                                     link={book.link}
-                                    img={book.img}
+                                    image={book.image}
                                     deleteBook={this.deleteBook}
                                 />
 
