@@ -11,7 +11,7 @@ function SavedBooks(props) {
                         <h3 className="card-subtitle mb-2 text-muted">by {props.author}</h3>
                     </div>
                     <div className="col-md-3">
-                        <img src={props.img} alt={props.title} />
+                        <img src={props.image} alt={props.title} />
                     </div>
                 </div>
                 <hr />

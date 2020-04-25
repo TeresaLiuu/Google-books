@@ -1,6 +1,7 @@
 import React from "react";
 
 function SearchResult(props) {
+    console.log(props.imagetest)
     return (
 
         <div className="card" key={props.id}>
@@ -11,7 +12,7 @@ function SearchResult(props) {
                         <h3 className="card-subtitle mb-2 text-muted">by {props.author}</h3>
                     </div>
                     <div className="col-md-3">
-                        <img src={props.img} alt={props.title} />
+                        <img src={props.image} alt={props.title} />
                     </div>
                 </div>
                 <hr />

@@ -11,6 +11,8 @@ class Search extends React.Component {
         title: "",
         author: "",
         synopsis: "",
+        link: "",
+        image:"",
         error: ""
 
     };
@@ -36,10 +38,10 @@ class Search extends React.Component {
             author: data.author,
             synopsis: data.synopsis,
             link: data.link,
-            img: data.img
+            image: data.image
         })
             .then(res => {
-                console.log(res.data.config)
+                console.log(res.data)
                 if (res.data.status === "error") {
                     throw new Error(res.data.message);
                 }
@@ -60,6 +62,15 @@ class Search extends React.Component {
             .catch(err => this.setState({ error: err.message }));
     };
 
+    addImageLinkToBooks(){
+        this.state.books.map(book => {
+            if (book.volumeInfo.imageLinks !== undefined) {
+                book.image = book.volumeInfo.imageLinks.thumbnail 
+            }
+            return book
+        })
+        return this.state.books
+    }
 
     render() {
         return (
@@ -75,7 +86,7 @@ class Search extends React.Component {
                         </form>
                     </div>
                 </div>
-                {this.state.books.map(books => (
+                {this.addImageLinkToBooks().map(books => (
                     <div className="row" key={books.id}>
                         <div className="col-md-6 mx-auto">
                             <br />
@@ -86,7 +97,7 @@ class Search extends React.Component {
                                 id={books.id}
                                 synopsis={books.volumeInfo.description}
                                 link={books.volumeInfo.previewLink}
-                                // image={books.volumeInfo.imageLinks.thumbnail}
+                                image={books.image}
                                 saveBook={this.saveBook}
                             />
                         </div>
