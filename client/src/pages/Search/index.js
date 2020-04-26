@@ -29,11 +29,9 @@ class Search extends React.Component {
 
     handleInputChange = event => {
         this.setState({ search: event.target.value });
-        console.log(this.state.search);
     }
 
     saveBook = data => {
-        console.log("checking if we got link in savebook data", data);
         API.save({
             title: data.title,
             author: data.author,

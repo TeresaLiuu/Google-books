@@ -19,7 +19,6 @@ app.get("/api/books", (req, res) => {
 });
 
 app.post("/search", (req, res) => {
-    console.log("search route req", req.body);
     let bookTitle = req.body.title.replace(/\s/g, "+");
     axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=${process.env.GBOOKS_KEY}`
@@ -35,7 +34,6 @@ app.post("/search", (req, res) => {
 });
 
 app.post("/api/books", (req, res) => {
-    console.log("this is req.body=", req.body);
     db.Book.create({
         title:req.body.title,
         author:req.body.author[0],
@@ -43,12 +41,10 @@ app.post("/api/books", (req, res) => {
         image:req.body.image
     }).then(
         (response) => {
-            console.log('succesful created');
             res.json({ successful: response });
         }
     ).catch(
         (err) => {
-            console.log(err);
             res.json({ error: err });
         }
     );
