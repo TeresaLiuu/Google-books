@@ -2,7 +2,6 @@ const axios = require("axios");
 const db = require("../models");
 const path = require("path");
 const express = require(`express`);
-// const apiRoutes = require(`./api`);
 const app = express();
 
 
@@ -39,7 +38,9 @@ app.post("/api/books", (req, res) => {
     console.log("this is req.body=", req.body);
     db.Book.create({
         title:req.body.title,
-        author:req.body.author[0]
+        author:req.body.author[0],
+        link:req.body.link,
+        image:req.body.image
     }).then(
         (response) => {
             console.log('succesful created');

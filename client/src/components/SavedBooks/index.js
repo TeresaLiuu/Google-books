@@ -2,7 +2,6 @@ import React from "react";
 
 function SavedBooks(props) {
     return (
-
         <div className="card" key={props.id}>
             <div className="card-body">
                 <div className="row">

@@ -1,9 +1,7 @@
 import React from "react";
 
 function SearchResult(props) {
-    console.log(props.imagetest)
     return (
-
         <div className="card" key={props.id}>
             <div className="card-body">
                 <div className="row">

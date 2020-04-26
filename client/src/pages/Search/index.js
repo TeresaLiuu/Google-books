@@ -33,6 +33,7 @@ class Search extends React.Component {
     }
 
     saveBook = data => {
+        console.log("checking if we got link in savebook data", data);
         API.save({
             title: data.title,
             author: data.author,
@@ -41,11 +42,9 @@ class Search extends React.Component {
             image: data.image
         })
             .then(res => {
-                console.log(res.data)
                 if (res.data.status === "error") {
                     throw new Error(res.data.message);
                 }
-                console.log(res.data.config)
             })
             .catch(err => console.log(err.response));
     }

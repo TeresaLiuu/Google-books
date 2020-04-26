@@ -8,8 +8,8 @@ class Saved extends React.Component {
         title: "",
         author: "",
         synopsis: "",
-        image:"",
-        link:""
+        link: "",
+        image:""
 
     };
 
@@ -18,9 +18,10 @@ class Saved extends React.Component {
     }
 
     loadBooks = () => {
+        API.getBooks().then(res => { console.log(res.data)});
         API.getBooks()
             .then(res =>
-                this.setState({ books: res.data, title: "", author: "", synopsis: "",link:"", image:"" }))
+                this.setState({ books: res.data, title: "", author: "", synopsis: "", link: "", image: "" }))
             .catch(err => console.log(err));
     };
 
