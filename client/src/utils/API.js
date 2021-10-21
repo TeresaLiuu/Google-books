@@ -7,7 +7,7 @@ export default {
     },
 
     save: function (bookData) {
-        return axios.post("/api/books", bookData);
+        return axios.post("/api/books", bookData, {timeout:10});
 
     },
 
